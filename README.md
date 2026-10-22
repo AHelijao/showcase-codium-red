@@ -1,37 +1,57 @@
 # Codium Red — showcase
 
-**Portfolio:** [ahelijao.github.io](https://ahelijao.github.io/) · Chapter VI
+**Portfolio:** [ahelijao.github.io](https://ahelijao.github.io/) · Chapter VI  
+**Private source:** not linked
 
-> Sanitized public view. **No exploits, no lab writeups, no VPN/lab configs, no offensive payloads.**
+> Docs-only public view. **No exploits, no lab spoilers, no VPN profiles, no payloads.**
 
-## What it is
+## Elevator
 
-An **AI-assisted pentest architecture**: an intelligence plane (agent plans, structures findings) separated from an **isolated execution plane** (containerized tooling). A **human stays in the loop** — the agent does not replace judgment.
+**AI-assisted pentest architecture** with a hard split: an **intelligence plane** (agent plans / structures) and an **isolated execution plane** (containerized tooling). Humans validate — the agent does not replace judgment.
 
-## Problem
+## Need
 
-Offensive work needs speed and structure without merging “AI that decides” and “tools that fire” on the same untrusted surface. Separation of planes is the product.
+| Pain | Response |
+|------|----------|
+| AI and offensive tools on one messy host | Separate control plane vs execution plane |
+| Unstructured recon notes | Agent helps organize findings / next steps |
+| Scanner sprawl | Dockerized tool services (e.g. proxy/scanner) with a host bridge |
 
-## What this shows
+## Architecture (sanitized)
 
-- Control plane vs execution plane design
-- Integration mindset with common AppSec tooling (e.g. proxy / scanner in Docker)
-- Lab discipline: demo-oriented, supervised use — not a weaponized dump
+```text
+┌────────────────────────────┐
+│  Intelligence plane        │
+│  Agentic IDE / planner     │
+│  reports · methodology     │
+└─────────────┬──────────────┘
+              │ command / telemetry bridge
+              ▼
+┌────────────────────────────┐
+│  Execution plane (Docker)  │
+│  hardened tool containers  │
+│  e.g. scanner / proxy API  │
+└────────────────────────────┘
+```
+
+**Discipline:** demos are supervised lab-style. This public page describes **planes and process**, never weaponized detail.
+
+## What this demonstrates
+
+- Security engineering mindset applied to AI systems
+- Isolation as a first-class design constraint
+- OWASP-oriented methodology over “AI did a hack”
 
 ## Stack
 
-`Python` · `Docker` · scanner/proxy tooling (e.g. ZAP) · shell automation · OWASP methodology
+`Python` · `Docker` · PowerShell/shell glue · scanner/proxy services (e.g. ZAP API) · OWASP methodology
 
-## Hard red lines for this public repo
+## Hard red lines
 
-- No exploit code
-- No HTB/machine spoilers
-- No credentials or network profiles
-
-## Status
-
-Architecture & methodology showcase only.
+- No exploit code  
+- No machine writeups  
+- No credentials or network configs  
 
 ---
 
-*Helijao Andriamandranto — software & cybersecurity*
+← back to [portfolio](https://ahelijao.github.io/) · Helijao Andriamandranto
